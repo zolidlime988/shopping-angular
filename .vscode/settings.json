@@ -1,0 +1,16 @@
+{
+    // I want my default to be 4, but JavaScript/JSON to be 2
+    "editor.tabSize": 3,
+    "[javascript]": {
+      "editor.tabSize": 3
+    },
+    "[json]": {
+      "editor.tabSize": 3
+    },
+    "[html]": {
+      "editor.tabSize": 3
+    },
+  
+    // This one forces the tab to be **space**
+    "editor.insertSpaces": true
+  }

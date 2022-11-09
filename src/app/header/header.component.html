@@ -6,11 +6,15 @@
 
         <div class="navbar-default">
             <ul class="nav navbar-nav">
-                <li routerLinkActive="active"><a routerLink="/recipes" >Recipes</a></li>
+                <li routerLinkActive="active"><a routerLink="/recipes" *ngIf="isAuth">Recipes</a></li>
                 <li routerLinkActive="active"><a routerLink="/shopping" >Shopping List</a></li>
+                <li routerLinkActive="active"><a routerLink="/auth" *ngIf="!isAuth">Login Page</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown" appDropdown>
+                <li>
+                    <a style="cursor: pointer;" *ngIf="isAuth" (click)="logout()">Logout</a>
+                </li>
+                <li class="dropdown" appDropdown *ngIf="isAuth">
                     <a style="cursor: pointer" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a style="cursor: pointer" (click)="onSave()">Save Data</a></li>
