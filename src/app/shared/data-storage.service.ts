@@ -5,7 +5,7 @@ import { AuthService, respLogin } from "../auth/auth.service";
 import { Recipe } from "../recipes/recipe.model";
 import { RecipeService } from "../recipes/recipe.service";
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class DataStorageService {
     constructor(private httpService: HttpClient,
                 private recipeService : RecipeService,

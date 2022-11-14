@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth/auth.service';
+import { LoggingService } from './logging.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,10 @@ import { AuthService } from './auth/auth.service';
 export class AppComponent implements OnInit {
   title = 'shopping-angular';
 
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService, private loggingService: LoggingService) {}
   
   ngOnInit() {
     this.auth.autoLogin()
+    this.loggingService.printlog('hello from app component')
   }
 }

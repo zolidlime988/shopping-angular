@@ -85,11 +85,11 @@ export class AuthService {
    }
 
    private handleAuth = (res: respLogin) => {
-      const expireDate = new Date(new Date().getTime() + +res.expiresIn)
+      const expireDate = new Date(new Date().getTime() + +res.expiresIn * 1000)
       const user = new User(res.email, res.localId, res.idToken, expireDate)
       
       this.user.next(user)
-      this.autoLogout(+res.expiresIn)
+      this.autoLogout(+res.expiresIn * 1000)
       localStorage.setItem('userData', JSON.stringify(user))
    }
 
@@ -116,7 +116,7 @@ export class AuthService {
    }
 
    autoLogout = (expireTime: number) => {
-      console.log(expireTime);
+      //console.log(expireTime);
       this.setTimeOutId = setTimeout(() => {
          this.logOut();
       }, expireTime)
