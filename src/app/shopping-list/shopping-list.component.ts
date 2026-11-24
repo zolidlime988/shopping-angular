@@ -1,15 +1,17 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit } from '@angular/core';
 import { Ingredients } from '../shared/ingredient.model';
 import { ShoppingListService } from './shopping-list.service';
 
 @Component({
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css']
 })
 export class ShoppingListComponent implements OnInit {
 
-  ingredients:Ingredients[];
+  ingredients: Ingredients[] = [];
 
   constructor(private shoppingListService: ShoppingListService) { }
 
