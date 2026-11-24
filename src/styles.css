@@ -2,3 +2,12 @@
 button {
     margin-right: 3px;
 }
+
+[appDropdown].show > .dropdown-menu {
+    display: block;
+}
+
+[appDropdown] > .dropdown-menu-end {
+    inset-inline-start: auto;
+    inset-inline-end: 0;
+}

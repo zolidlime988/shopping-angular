@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
 
 @Component({
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css']
@@ -10,7 +12,7 @@ import { RecipeService } from '../recipe.service';
 export class RecipeListComponent implements OnInit {
 
 
-  recipes: Recipe[];
+  recipes: Recipe[] = [];
 
   constructor(private recipeService : RecipeService) { }
 
